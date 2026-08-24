@@ -428,6 +428,21 @@ h2 {
   background: linear-gradient(160deg, #fff0b0 0%, #f0b429 55%, #d99a1b 100%);
 }
 
+.project__media--photo {
+  padding: 0;
+}
+
+.project__media--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project:hover .project__media--photo img {
+  transform: scale(1.05);
+}
+
 .project__shape {
   position: absolute;
   width: 70px;
