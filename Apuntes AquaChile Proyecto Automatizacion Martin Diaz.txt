@@ -1,0 +1,79 @@
+Aqua Chile Problema: Lentitud al analizar archivos psicolaborales y procesos manuales en vez de estar automatizados, manteniendo constantemene errores, tiempos operativos y fallas del sistema.
+
+Situacion actual: El proceso actual funciona de la siguiente manera:
+Un analista de reclutamiento solicita una evaluación psicolaboral mediante un formulario
+(Forms), ingresando:
+a. Nombre del candidato
+b. Familia de cargo **** PREGUNTAR REUNION MIERCOLES ****
+c. Nombre del cargo
+d. Curriculum Vitae (CV)
+
+2. La información del formulario se almacena en un Excel y se integra con Planner mediante
+Power Automate, permitiendo visualizar el estado de cada solicitud.
+
+3. De forma manual, el psicólogo debe:
+a. Descargar el CV
+b. Crear una carpeta en OneDrive
+c. Subir archivos base según la familia de cargo:
+i. Informe psicolaboral (Excel)
+ii. Pauta de entrevista (Word)
+
+4. Durante la entrevista:
+a. Se toman apuntes en Word
+b. Se genera una transcripción automática
+
+5. Luego:
+a. Se suben ambos archivos a un agente de Copilot
+b. Copilot genera el contenido del informe
+
+6. Finalmente:
+a. Se copia y pega manualmente la información en el Excel del informe
+b. Se revisa el documento
+c. Se envía por correo al analista solicitante
+
+Problema principal:
+El proceso contiene múltiples tareas manuales repetitivas que consumen tiempo y son
+automatizables.
+El objetivo del proyecto es automatizar completamente proceso manuales para reducir tiempos y evitar fallos, siendo desde la solicitud/form hasa la generación completa del informe, mejorando por completo la eficiencia del proceso
+
+Básicamente seria:
+
+1. Al recibir la solicitud o el formulario el sistema deberá crear una carpeta en OneDrive o SharePoint con el nombre del encargado que solicito el informe
+2. El CV se guarda dentro de dicha carpeta
+3. Se selecciona automáticamente (SEGUN FAMILIA DE CARGO)
+Plantilla de informe psicolaboral (EXCEL)
+Pauta de entrevista (WORD)
+4. Copiar estos archivos dentro de la carpeta del candidato y el resultado esperado seria la carpeta creada completamente automática con todos los insumos necesarios
+
+La fase 1 seria la mas completa, ya que seria la inicial al proceso de automatización, creación de carpetas y documentos, lo que elimina completamente la gestión manual inicial, al recibir una solicitud en el form, el sistema debe crear automáticamente una carpea en OneDrive o SharePoint con el nombre del candidato, se debe guardar el CV dentro de la carpeta, también seleccionar automáticamente (según familia de cargo) plantilla de informe psicolaboral (EXCEL) y/o pauta de entrevista (WORD) y copiar estos archivos dentro de la carpeta del candidato, el resultado que se espera de esta primera fase seria la creación de la carpeta AUTOMATICAMENTE con todos los insumos necesarios
+
+El objetivo de la fase 2: Automatización de traspaso de información al informe evitando el copiado manual de información.
+El análisis enerado por copilot debe integrarse AUTOMATICAMENTE con el Excel del informe psicolaboral y cada seccon del análisis debe ubicarse en su celda correspondiente dentro del archivo, con resultado esperado que el informe psicolaboral se encuentre completado AUTOMATICAMENTE y listo para revisión.
+
+Y finalmente la fase 3 seria un Asistente Inteligente (IA)  (AGENTE QUE ESCUCHA LA REUNION COMPLETA Y TOMA APUNTES PARA LO DEMAS DE LA PSICOLOG@) para las entrevistas el cual mejora la calidad de la entrevistas.
+Creando este agente Copilot, acompañaría en tiempo real durante toda la entrevista, también sugiere preguntas de profundización y orienta según respuestas del candidato, como resultado esperado, las entrevistas serian mucho mas estructuradas, serian profundas y consistentes.
+
+OBSERVACION: EL PROYECTO DE AUTOMATIZACION SE PUEDE REALIZAR CON CUALQUIER TECNOLOGIA PERO AL FINAL HAY QUE SABER COMO SE HIZO Y QUE FUNCIONE 100% AL REQUIRIMIENTO DEL PROBLEMA (JUSTIFICAR EL PORQUE SE USO X TECNOLOGIA)
+
+
+
+
+PREGUNTAS Y RESPUESTAS
+2.1 Contradicción en el nombre de la carpeta: El documento .docx y parte del .txt indican que la carpeta debe crearse con el nombre del candidato. Sin embargo, el punto 1 del resumen en el archivo .txt indica que debe crearse con el nombre del encargado que solicitó el informe. Se debe definir la sintaxis oficial (ej.: [Familia]_[Nombre Candidato]_[Fecha]).   R: Es lo mismo 
+2.2 ¿OneDrive o SharePoint? Ambos documentos mencionan "OneDrive o SharePoint" indistintamente. Para entornos empresariales colaborativos, SharePoint es altamente recomendado, ya que los flujos vinculados a OneDrive personal pueden romperse si el usuario/psicólogo abandona la organización o cambia de licencias.   R: Se recomienda alguno de los 2....
+2.3 anejo de homónimos / duplicados: ¿Qué sucede si dos candidatos tienen el mismo nombre o si se reevalúa a un candidato? Se debe definir si se incluirá un ID único, el RUT/DNI o un timestamp en el nombre de la carpeta para evitar sobreescritura de archivos. R: Se revisa mediante RUT o DNI 
+3.1 ¿Cómo entregará Copilot la información estructurada? Para que Power Automate inserte datos en celdas específicas de Excel sin errores, el análisis de Copilot no puede ser texto libre en lenguaje natural. ¿Se utilizará Copilot Studio / Azure OpenAI / Power Automate Prompts para forzar a Copilot a responder en formato estructurado (por ejemplo, en un esquema JSON)? R: Se utiliza la mejor IA dada al caso
+4.1 Campos del formulario: Actualmente se solicita Nombre del candidato, Familia de cargo, Nombre del cargo y CV. ¿Se requiere agregar campos adicionales obligatorios como Correo del analista solicitante, Fecha límite o Psicólogo asignado? R: No se solicita nada mas...
+4.2 Campos del formulario: Actualmente se solicita Nombre del candidato, Familia de cargo, Nombre del cargo y CV. ¿Se requiere agregar campos adicionales obligatorios como Correo del analista solicitante, Fecha límite o Psicólogo asignado? R: El solicitado en el problema presentado, sino en un PDF/WORD 
+5.1 Lugar de entrevistas? R: Online
+5.2 Acceso a la transcripción en vivo: ¿Se utilizará M365 Copilot dentro de la reunión de Teams o un agente personalizado desarrollado en Copilot Studio? R: Que se solicita??? Agente Desarrollado Personalizado
+6.1 Acceso a la transcripción en vivo: ¿Se utilizará M365 Copilot dentro de la reunión de Teams o un agente personalizado desarrollado en Copilot Studio? R: Muy buena pregunta, deberia entregarle un mensaje al finalizar el Form: Archivo recibido y tambien al cerrar la pagina O al darle al boton de enviar que supuestamente existe al final del Form, enviar un correo con la confirmacion del envio del form un poco mas detallado
+6.2 Gestión de Permisos: ¿El analista que solicitó la evaluación debe tener acceso inmediato a la carpeta del candidato en SharePoint/OneDrive desde el inicio, o solo debe recibir el informe final por correo? R: Solo recibe la carpeta al final, por correo
+
+La pregunta 1 de etapa 1 ¿Cuál es la lista definitiva de Familias de Cargo y dónde están ubicadas las plantillas de Excel y Word de cada una?, aun no lo se, pero puedes hacer cargo A, cargo B, cargo C etc...
+
+La pregunta etapa 1 aun ¿Se usará SharePoint o OneDrive personal, y cuál es la regla fija para nombrar las carpetas? Se utilizara lo que se menciona en el documento, si no se menciona, se creara una carpeta haciendo mencion al nombre del candidato mas el informe supuestamente
+
+¿Tienen las plantillas de Excel un formato definido (celdas/rangos nombrados) para recibir los datos de Copilot? R: No, recien hoy empezamos a ver la problematica, el miercoles hay una reunion, recuerda que somos estudiantes y no trabajadores
+
+¿Cómo notificará el psicólogo al sistema que el informe automatizado fue revisado y está listo para enviarse por correo? R: Respuesta ya entregada.
